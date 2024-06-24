@@ -1,28 +1,25 @@
 import { useState, useEffect } from "react";
 
-export default function Fetch() {
-    const [countries, setCountries] = useState(null);
+export default function useFetchData(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch("../data/data");
-                const data = await res.json();
-                console.log(data);
-                setCountries(data);
-            } catch (e) {
-                console.error(e);
-            }
-        };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        setData(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
 
-        fetchData();
-    }, []);
+    fetchData();
+  }, [url]);
 
-    return (
-        <div>
-            {countries && countries.map((country) => (
-                <img key={country.id} src={country.flags.png} alt={country.name} />
-            ))}
-        </div>
-    );
+  return { data, loading, error };
 }
