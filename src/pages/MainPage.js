@@ -1,6 +1,7 @@
 import React from "react";
 import useFetchData from "../hooks/Fetch";
 import CountryCard from "../components/CountryCard/CountryCard";
+import './MainPage.css'
 
 export default function MainPage() {
   const { data, loading, error } = useFetchData("data.json");
@@ -14,7 +15,7 @@ export default function MainPage() {
         <CountryCard
           key={index}
           flagUrl={country.flag}
-          countryName={country.Name}
+          countryName={country.name}
           region={country.region}
           capital={country.capital}
         />

@@ -2,18 +2,22 @@ import './CountryCard.css';
 
 export default function CountryCard({ flagUrl, countryName, region, capital }) {
     return (
-        <div>
+        <div className="country-card">
+            <img src={flagUrl} alt={countryName} className='flags' />
 
-            <img src={flagUrl} alt={countryName}></img>
+            <h2 className='country-name'>{countryName}</h2>
 
-            <span>{countryName}</span>
+            <div className='details'>
 
-            <span>{region}</span>
+                <div className='row-info'>
+                    <span>Region:</span>
+                    <span>{region}</span>
+                </div>
 
-            <span>{capital}</span>
 
+                <span>Capital: {capital}</span>
 
-
+            </div>
 
         </div>
     )
