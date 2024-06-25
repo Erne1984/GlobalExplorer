@@ -18,6 +18,7 @@ export default function MainPage() {
           countryName={country.name}
           region={country.region}
           capital={country.capital}
+          population={country.population}
         />
       ))}
     </div>
