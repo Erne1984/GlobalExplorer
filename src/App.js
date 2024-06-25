@@ -12,11 +12,13 @@ function App() {
   const { data, loading, error } = useFetchData("data.json");
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [filterRegion, setFilterRegion] = useState('');
 
-  const filteredData = data ? data.filter(country =>
-    country.name.toLowerCase().includes(searchQuery.toLowerCase())
-  ) : [];
-
+  const filteredData = data ? data.filter(country => {
+    const matchesSearchQuery = country.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesRegion = filterRegion === '' || filterRegion === 'All' || country.region === filterRegion;
+    return matchesSearchQuery && matchesRegion;
+  }) : [];
 
   return (
     <>
@@ -24,7 +26,7 @@ function App() {
 
       <div className='second-header'>
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <Filter />
+        <Filter filterRegion={filterRegion} setFilterRegion={setFilterRegion} />
       </div>
 
       <MainContent data={filteredData} loading={loading} error={error} />

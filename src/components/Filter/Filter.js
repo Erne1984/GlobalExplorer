@@ -2,27 +2,34 @@ import './Filter.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-export default function Filter() {
+import { useState } from 'react';
+
+import Dropdown from '../Dropdown/Dropdown';
+
+export default function Filter({ filterRegion, setFilterRegion}) {
+    const [dropdown, setDropdown] = useState(true);
+
+    const classDropdown = dropdown ? "dropdown-menu none" : "dropdown-menu active"
+
+    function handleDropdown() {
+        if (dropdown) {
+            setDropdown(false)
+        } else {
+            setDropdown(true)
+        }
+    }
+
     return (
         <>
             <div className='filter-container'>
 
-                <div className='filter-box'>
+                <div className='filter-box' onClick={handleDropdown}>
                     <span className='filter-text'>Filter by region</span>
                     <FontAwesomeIcon icon={faCaretDown} />
                 </div>
 
-                <div className='dropdown-menu'>
+                <Dropdown classActive={classDropdown} filterRegion={filterRegion} setFilterRegion={setFilterRegion}/>
 
-                    <ul>
-                        <li>Africa</li>
-                        <li>America</li>
-                        <li>Europe</li>
-                        <li>Asia</li>
-                        <li>Oceania</li>
-                    </ul>
-
-                </div>
             </div>
         </>
     )
