@@ -2,7 +2,7 @@ import './CountryCard.css';
 
 export default function CountryCard({ flagUrl, countryName, region, capital, population, isDarkMode }) {
 
-    const countryCardTheme = !isDarkMode ? "country-card white-mode" : "country-card dark-mode"
+    const countryCardTheme = !isDarkMode ? "country-card white-mode" : "country-card dark-mode";
 
     return (
         <div className={countryCardTheme}>

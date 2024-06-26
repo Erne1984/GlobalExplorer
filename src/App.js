@@ -5,7 +5,12 @@ import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
 import Filter from './components/Filter/Filter';
 
-import MainContent from './pages/MainContent';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import CountryDetails from './pages/CountryDetails/CountryDetails';
+
+
+import MainContent from './pages/MainContent/MainContent';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -38,7 +43,12 @@ function App() {
         <Filter filterRegion={filterRegion} setFilterRegion={setFilterRegion} isDarkMode={isDarkMode} />
       </div>
 
-      <MainContent data={filteredData} loading={loading} error={error} isDarkMode={isDarkMode}/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainContent  data={filteredData} loading={loading} error={error} isDarkMode={isDarkMode}/>} />
+          <Route path="/countrydetails/:id" element={<CountryDetails />} />
+        </Routes>
+      </Router>
     </>
   );
 }

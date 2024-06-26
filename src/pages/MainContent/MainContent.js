@@ -1,5 +1,5 @@
 import React from "react";
-import CountryCard from "../components/CountryCard/CountryCard";
+import CountryCard from "../../components/CountryCard/CountryCard";
 import './MainContent.css';
 
 export default function MainContent({ data, loading, error, isDarkMode }) {
