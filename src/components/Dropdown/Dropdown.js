@@ -1,10 +1,10 @@
 import "./Dropdown.css";
 
-export default function Dropdown({ classActive, filterRegion, setFilterRegion }) {
+export default function Dropdown({ classActive, filterRegion, setFilterRegion, setDropdown }) {
 
   function handleRegion(e) {
     setFilterRegion(e.target.innerText)
-    console.log(filterRegion)
+    setDropdown(true)
   }
 
   const regions = ["All", "Africa", "Americas", "Europe", "Asia", "Oceania"]

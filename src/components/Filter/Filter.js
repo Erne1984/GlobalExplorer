@@ -28,7 +28,7 @@ export default function Filter({ filterRegion, setFilterRegion}) {
                     <FontAwesomeIcon icon={faCaretDown} />
                 </div>
 
-                <Dropdown classActive={classDropdown} filterRegion={filterRegion} setFilterRegion={setFilterRegion}/>
+                <Dropdown classActive={classDropdown} filterRegion={filterRegion} setFilterRegion={setFilterRegion} setDropdown={setDropdown}/>
 
             </div>
         </>
