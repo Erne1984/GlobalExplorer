@@ -6,13 +6,22 @@ import SearchBar from './components/SearchBar/SearchBar';
 import Filter from './components/Filter/Filter';
 
 import MainContent from './pages/MainContent';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const { data, loading, error } = useFetchData("data.json");
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filterRegion, setFilterRegion] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    document.body.className = isDarkMode ? 'dark-mode' : '';
+  }, [isDarkMode]);
 
   const filteredData = data ? data.filter(country => {
     const matchesSearchQuery = country.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -22,11 +31,11 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
 
       <div className='second-header'>
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <Filter filterRegion={filterRegion} setFilterRegion={setFilterRegion} />
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} isDarkMode={isDarkMode}/>
+        <Filter filterRegion={filterRegion} setFilterRegion={setFilterRegion} isDarkMode={isDarkMode}/>
       </div>
 
       <MainContent data={filteredData} loading={loading} error={error} />

@@ -1,6 +1,40 @@
-.second-header{
+:root {
+    --white-theme: #fff;
+    --dark-theme: #202d36;
+    --dark-theme-components: #2b3743;
+    --text-dark-theme: #fff;
+    --text-white-theme: #000000;
+}
+
+* {
+    font-family: "Nunito Sans", 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Modo Claro */
+body {
+    background-color: var(--white-theme);
+    color: var(--text-white-theme);
+}
+
+/* Modo Escuro */
+body.dark-mode {
+    background-color: var(--dark-theme);
+    color: var(--text-dark-theme);
+}
+
+body.dark-mode header {
+    background-color: var(--dark-theme-components);
+}
+
+.second-header {
     display: flex;
     justify-content: space-between;
+    margin: 1.5rem 2.5rem;
+}
 
-    margin-top: 2rem;
+body.dark-mode .second-header {
+    background-color: var(--dark-theme);
 }

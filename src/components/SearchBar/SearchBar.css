@@ -4,7 +4,6 @@
     width: 300px;
     border-radius: 10px;
     padding: 0.6rem 1.3rem;
-    border: 1px solid black;
 }
 
 .search-icon {
@@ -17,4 +16,14 @@
     width: 100%;
     border: none;
     outline: none;
+}
+
+.white-mode{
+    background-color: var(--white-theme-components);
+    color: var(--text-white-theme);
+}
+
+.dark-mode{
+    background-color: var(--dark-theme-components);
+    color: var(--text-dark-theme);
 }

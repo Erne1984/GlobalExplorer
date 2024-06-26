@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import Dropdown from '../Dropdown/Dropdown';
 
-export default function Filter({ filterRegion, setFilterRegion}) {
+export default function Filter({ filterRegion, setFilterRegion, isDarkMode }) {
     const [dropdown, setDropdown] = useState(true);
 
     const classDropdown = dropdown ? "dropdown-menu none" : "dropdown-menu active"
@@ -19,16 +19,24 @@ export default function Filter({ filterRegion, setFilterRegion}) {
         }
     }
 
+    const filterContainerTheme = !isDarkMode ? "filter-container white-mode" : "filter-container dark-mode";
+    const filterContainerBox = !isDarkMode ? "filter-box white-mode" : "filter-box dark-mode"
+
     return (
         <>
-            <div className='filter-container'>
+            <div className={filterContainerTheme}>
 
-                <div className='filter-box' onClick={handleDropdown}>
+                <div className={filterContainerBox} onClick={handleDropdown}>
                     <span className='filter-text'>Filter by region</span>
                     <FontAwesomeIcon icon={faCaretDown} />
                 </div>
 
-                <Dropdown classActive={classDropdown} filterRegion={filterRegion} setFilterRegion={setFilterRegion} setDropdown={setDropdown}/>
+                <Dropdown
+                    classActive={classDropdown}
+                    filterRegion={filterRegion}
+                    setFilterRegion={setFilterRegion}
+                    setDropdown={setDropdown}
+                    isDarkMode={isDarkMode} />
 
             </div>
         </>

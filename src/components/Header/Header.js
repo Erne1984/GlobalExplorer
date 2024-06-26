@@ -2,19 +2,23 @@ import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
-export default function Header() {
+export default function Header({ toggleDarkMode, isDarkMode }) {
 
     return (
         <>
-            <header className='main-header'>
+            <header className='main-header-container'>
 
-                <h1 className='title'>Where is in the world?</h1>
+                <div className="main-header">
 
-                <div className='switch-theme-box'>
+                    <h1 className='title'>Where is in the world?</h1>
 
-                    <FontAwesomeIcon icon={faMoon} className='icons' />
-                    
-                    <div className='theme-text'>Dark Mode</div>
+                    <div className='switch-theme-box' onClick={toggleDarkMode}>
+
+                        <FontAwesomeIcon icon={faMoon} className='icons' />
+
+                        <div className='theme-text'>Dark Mode</div>
+
+                    </div>
 
                 </div>
 

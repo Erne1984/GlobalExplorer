@@ -1,6 +1,6 @@
 import "./Dropdown.css";
 
-export default function Dropdown({ classActive, filterRegion, setFilterRegion, setDropdown }) {
+export default function Dropdown({ classActive, filterRegion, setFilterRegion, setDropdown, isDarkMode }) {
 
   function handleRegion(e) {
     setFilterRegion(e.target.innerText)
@@ -9,14 +9,19 @@ export default function Dropdown({ classActive, filterRegion, setFilterRegion, s
 
   const regions = ["All", "Africa", "Americas", "Europe", "Asia", "Oceania"]
 
+  //const 
+
+  const dropdownDarkMode = !isDarkMode ? " white-mode" : " dark-mode" 
+
   return (
     <div className={classActive}>
 
-      <ul>
+      <ul className={dropdownDarkMode}>
 
         {
           regions.map((region) => (
-            <li key={region}
+            <li 
+            key={region}
             onClick={handleRegion}>{region}</li>
           ))
         }
