@@ -2,12 +2,19 @@
     border-radius: 8px;
     padding: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.country-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .country-card img {
-    width: 100%;  
-    height: 150px; 
-    object-fit: cover; 
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     border-radius: 4px;
 }
 
@@ -33,4 +40,14 @@
 .country-card .bold {
     margin-right: 2px;
     font-weight: bold;
+}
+
+.white-mode {
+    background-color: var(--white-theme-components);
+    color: var(--text-white-theme);
+}
+
+.dark-mode {
+    background-color: var(--dark-theme-components);
+    color: var(--text-dark-theme);
 }

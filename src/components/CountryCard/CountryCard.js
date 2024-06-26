@@ -1,8 +1,11 @@
 import './CountryCard.css';
 
-export default function CountryCard({ flagUrl, countryName, region, capital, population }) {
+export default function CountryCard({ flagUrl, countryName, region, capital, population, isDarkMode }) {
+
+    const countryCardTheme = !isDarkMode ? "country-card white-mode" : "country-card dark-mode"
+
     return (
-        <div className="country-card">
+        <div className={countryCardTheme}>
             <img src={flagUrl} alt={countryName} className='flags' />
 
             <div className='country-info-box'>

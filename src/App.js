@@ -34,11 +34,11 @@ function App() {
       <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
 
       <div className='second-header'>
-        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} isDarkMode={isDarkMode}/>
-        <Filter filterRegion={filterRegion} setFilterRegion={setFilterRegion} isDarkMode={isDarkMode}/>
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} isDarkMode={isDarkMode} />
+        <Filter filterRegion={filterRegion} setFilterRegion={setFilterRegion} isDarkMode={isDarkMode} />
       </div>
 
-      <MainContent data={filteredData} loading={loading} error={error} />
+      <MainContent data={filteredData} loading={loading} error={error} isDarkMode={isDarkMode}/>
     </>
   );
 }

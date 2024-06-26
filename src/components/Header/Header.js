@@ -1,6 +1,6 @@
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header({ toggleDarkMode, isDarkMode }) {
 
@@ -14,9 +14,24 @@ export default function Header({ toggleDarkMode, isDarkMode }) {
 
                     <div className='switch-theme-box' onClick={toggleDarkMode}>
 
-                        <FontAwesomeIcon icon={faMoon} className='icons' />
+                        {
+                            !isDarkMode ?
+                                (
+                                    <>
+                                        <FontAwesomeIcon icon={faSun} className='icons' />
 
-                        <div className='theme-text'>Dark Mode</div>
+                                        <div className='theme-text'>White Mode</div>
+                                    </>
+                                )
+                                :
+                                (
+                                    <>
+                                        <FontAwesomeIcon icon={faMoon} className='icons' />
+
+                                        <div className='theme-text'>Dark Mode</div>
+                                    </>
+                                )
+                        }
 
                     </div>
 

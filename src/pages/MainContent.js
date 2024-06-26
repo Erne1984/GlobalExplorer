@@ -2,7 +2,7 @@ import React from "react";
 import CountryCard from "../components/CountryCard/CountryCard";
 import './MainContent.css';
 
-export default function MainContent({ data, loading, error }) {
+export default function MainContent({ data, loading, error, isDarkMode }) {
   if (loading) return <p>Carregando...</p>;
   if (error) return <p>Ocorreu um erro: {error.message}</p>;
 
@@ -16,6 +16,7 @@ export default function MainContent({ data, loading, error }) {
           region={country.region}
           capital={country.capital}
           population={country.population}
+          isDarkMode={isDarkMode}
         />
       ))}
     </div>
