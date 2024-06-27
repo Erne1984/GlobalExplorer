@@ -1,5 +1,8 @@
 .main-header-container {
     display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2.5rem;
 }
 
 .main-header {
@@ -7,14 +10,14 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 1.5rem 2.5rem;
+    max-width: 1200px;
+    /* Define a largura máxima do header */
 }
 
 .switch-theme-box {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 3px;
+    gap: 8px;
     cursor: pointer;
 }
 
@@ -25,4 +28,20 @@
 
 .theme-text {
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .main-header-container {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .switch-theme-box {
+        margin-top: 0.5rem;
+    }
 }

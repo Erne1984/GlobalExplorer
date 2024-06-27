@@ -38,3 +38,12 @@ body.dark-mode header {
 body.dark-mode .second-header {
     background-color: var(--dark-theme);
 }
+
+
+@media (max-width: 400px) {
+    .second-header{
+        flex-direction: column;
+        align-items: center;
+        gap:10px;
+    }
+}
