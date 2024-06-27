@@ -11,8 +11,7 @@
 
 .container-details {
     display: flex;
-    justify-content: center;
-    gap: 6rem;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 

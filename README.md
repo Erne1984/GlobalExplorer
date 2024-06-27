@@ -2,6 +2,10 @@
 
 Country Explorer is a web application that integrates with the [REST Countries API](https://restcountries.com) to pull country data and display it in a user-friendly format. This project was built using React and provides features such as searching, filtering, and viewing detailed information about countries. Additionally, the application supports a dark mode toggle.
 
+![Captura de Tela do Projeto](public/print.jpg)
+
+![Captura de Tela do Projeto](public/printDetails.jpg)
+
 ## Features
 
 - Display all countries from the API on the homepage
@@ -31,39 +35,11 @@ Country Explorer is a web application that integrates with the [REST Countries A
 
 The application should now be running on `http://localhost:3000`.
 
-## Usage
-
-### Homepage
-
-- **View all countries:** All countries fetched from the API are displayed on the homepage.
-- **Search for a country:** Use the search bar to filter countries by name.
-- **Filter by region:** Use the filter dropdown to display countries from a specific region.
-
-### Country Details
-
-- **View detailed information:** Click on a country card to navigate to a page displaying detailed information about the country.
-- **View border countries:** Click on a border country to navigate to its details page.
-
-### Dark Mode
-
-- **Toggle dark mode:** Use the dark mode toggle in the header to switch between light and dark themes.
-
-## Project Structure
-
-- **`/src/components`**: Contains reusable components like `Header`, `SearchBar`, `Filter`, `DetailsBox`, and `Borders`.
-- **`/src/pages`**: Contains page components like `MainContent` and `CountryDetails`.
-- **`/src/hooks`**: Contains custom hooks like `useFetchData`.
-- **`/src/App.js`**: Main application component.
-
 ## Dependencies
 
 - **React**: JavaScript library for building user interfaces.
 - **React Router**: Declarative routing for React applications.
 - **FontAwesome**: Icon library for adding icons.
-
-## Custom Hooks
-
-- **`useFetchData`**: Custom hook to fetch data from the REST Countries API.
 
 ## API
 
