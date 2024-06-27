@@ -12,13 +12,19 @@ export default function CountryDetails({ data, isDarkMode }) {
     useEffect(() => {
         localStorage.removeItem('currentCountry');
 
-        const country = data.find((country) => country.name === id);
+        const storedCountry = localStorage.getItem(id);
 
-        if (country) {
-            setCurrentidObject(country);
-            localStorage.setItem('currentCountry', JSON.stringify(country));
+        if (storedCountry) {
+            setCurrentidObject(JSON.parse(storedCountry));
         } else {
-            setCurrentidObject(null);
+            const country = data.find((country) => country.name === id);
+
+            if (country) {
+                setCurrentidObject(country);
+                localStorage.setItem(id, JSON.stringify(country));
+            } else {
+                setCurrentidObject(null);
+            }
         }
     }, [id, data]);
 

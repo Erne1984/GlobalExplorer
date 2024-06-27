@@ -1,5 +1,6 @@
 .borders {
     display: flex;
+    margin-top: 3rem;
 }
 
 .borders-title {

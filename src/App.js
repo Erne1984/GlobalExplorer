@@ -8,8 +8,6 @@ import Filter from './components/Filter/Filter';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import CountryDetails from './pages/CountryDetails/CountryDetails';
-
-
 import MainContent from './pages/MainContent/MainContent';
 import { useState, useEffect } from 'react';
 

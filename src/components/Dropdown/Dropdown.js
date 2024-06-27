@@ -9,8 +9,6 @@ export default function Dropdown({ classActive, filterRegion, setFilterRegion, s
 
   const regions = ["All", "Africa", "Americas", "Europe", "Asia", "Oceania"]
 
-  //const 
-
   const dropdownDarkMode = !isDarkMode ? " white-mode" : " dark-mode" 
 
   return (
