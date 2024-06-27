@@ -18,6 +18,7 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filterRegion, setFilterRegion] = useState('');
+  const [countryDetails, setCountryDetails] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
@@ -45,8 +46,17 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path="/" element={<MainContent  data={filteredData} loading={loading} error={error} isDarkMode={isDarkMode}/>} />
-          <Route path="/countrydetails/:id" element={<CountryDetails />} />
+          <Route path="/" element={<MainContent
+            data={filteredData}
+            loading={loading}
+            error={error}
+            isDarkMode={isDarkMode}
+            countryDetails={countryDetails}
+            setCountryDetails={setCountryDetails}
+          />} />
+          <Route path="/countrydetails/:id" element={<CountryDetails
+            data={data}
+          />} />
         </Routes>
       </Router>
     </>
