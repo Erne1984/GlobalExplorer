@@ -17,7 +17,7 @@ export default function CountryDetails({ data, isDarkMode }) {
         if (storedCountry) {
             setCurrentidObject(JSON.parse(storedCountry));
         } else {
-            const country = data.find((country) => country.name === id);
+            const country = data.find((country) => country.name.official === id);
 
             if (country) {
                 setCurrentidObject(country);
@@ -41,12 +41,10 @@ export default function CountryDetails({ data, isDarkMode }) {
 
                 <section className="container-details">
                     <div className="flag-box">
-                        <img src={currentidObject.flag} alt={`${currentidObject.name} flag`} />
+                        <img src={currentidObject.flags.png} alt={`${currentidObject.name.common} flag`} />
                     </div>
 
                     <DetailsBox currentidObject={currentidObject} />
-
-
                 </section>
             </div>
         </>

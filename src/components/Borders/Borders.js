@@ -5,9 +5,13 @@ export default function Borders({ borders }) {
         <div className='borders'>
             <span className='borders-title'>Borders Countries: </span>
             <span className='countries'>
-                {borders.map((border, index) => (
-                    <span key={index}>{border}</span>
-                ))}
+                {borders && borders.length > 0 ? (
+                    borders.map((border, index) => (
+                        <span key={index}>{border}</span>
+                    ))
+                ) : (
+                    "N/A"
+                )}
             </span>
         </div>
     )

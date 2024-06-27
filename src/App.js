@@ -12,7 +12,7 @@ import MainContent from './pages/MainContent/MainContent';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const { data, loading, error } = useFetchData("data.json");
+  const { data, loading, error } = useFetchData("https://restcountries.com/v3.1/all");
 
   const [searchQuery, setSearchQuery] = useState('');
   const [filterRegion, setFilterRegion] = useState('');
@@ -28,7 +28,7 @@ function App() {
   }, [isDarkMode]);
 
   const filteredData = data ? data.filter(country => {
-    const matchesSearchQuery = country.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearchQuery = country.name.official.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesRegion = filterRegion === '' || filterRegion === 'All' || country.region === filterRegion;
     return matchesSearchQuery && matchesRegion;
   }) : [];

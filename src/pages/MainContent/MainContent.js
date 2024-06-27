@@ -11,8 +11,8 @@ export default function MainContent({ data, loading, error, isDarkMode }) {
       {data && data.map((country, index) => (
         <CountryCard
           key={index}
-          flagUrl={country.flag}
-          countryName={country.name}
+          flagUrl={country.flags.png}
+          countryName={country.name.official}
           region={country.region}
           capital={country.capital}
           population={country.population}
