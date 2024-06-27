@@ -1,0 +1,30 @@
+.btn-comeback{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    width: 80px;
+    cursor: pointer;
+    appearance: none;
+}
+
+.btn-comeback:hover{
+    opacity: 0.8;
+}
+
+
+.arrow-back{
+    position: relative;
+    bottom: 1px;
+}
+
+.white-mode{
+    background-color: var(--white-theme-components);
+    color: var(--text-white-theme);
+}
+
+.dark-mode{
+    background-color: var(--dark-theme-components);
+    color: var(--text-dark-theme);
+}

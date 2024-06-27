@@ -1,84 +1,46 @@
 import "./CountryDetails.css";
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
+import BtnComeback from "../../components/BtnComeback/BtnComeback";
+import DetailsBox from "../../components/DetailsBox/DetailsBox";
 
-
-export default function CountryDetails({ data }) {
-
+export default function CountryDetails({ data, isDarkMode }) {
     const { id } = useParams();
+    const [currentidObject, setCurrentidObject] = useState(null);
 
-    const currentidObject = data.find((country) => country.name === id);
+    useEffect(() => {
+        localStorage.removeItem('currentCountry');
 
+        const country = data.find((country) => country.name === id);
+
+        if (country) {
+            setCurrentidObject(country);
+            localStorage.setItem('currentCountry', JSON.stringify(country));
+        } else {
+            setCurrentidObject(null);
+        }
+    }, [id, data]);
+
+    if (!currentidObject) {
+        return <div>Country not found</div>;
+    }
 
     return (
         <>
-
-            <section className="container-details">
-
-                <div className="flag-box">
-                    <img src={currentidObject.flag}></img>
+            <div className="container-country-details">
+                <div className="top-section">
+                    <BtnComeback isDarkMode={isDarkMode} />
                 </div>
 
-                <div className="details-box">
-
-                    <h2>{currentidObject.name}</h2>
-
-                    <div className="columns-details">
-
-                        <div className="left-column-details">
-                            <div className='row-info'>
-                                <span className='bold'>Native Name: </span>
-                                <span>{currentidObject.languages[0].nativeName}</span>
-                            </div>
-
-                            <div className='row-info'>
-                                <span className='bold'>Population: </span>
-                                <span>{ currentidObject.population.toLocaleString('pt-BR') }</span>
-                            </div>
-
-                            <div className='row-info'>
-                                <span className='bold'>Region:</span>
-                                <span>{ currentidObject.region }</span>
-                            </div>
-
-                            <div className='row-info'>
-                                <span className='bold'>Sub Region:</span>
-                                <span>{ currentidObject.subregion }</span>
-                            </div>
-
-                            <div className='row-info'>
-                                <span className='bold'>Capital:</span>
-                                <span>{ currentidObject.capital }</span>
-                            </div>
-                        </div>
-
-                        <div className="left-column-details">
-                            <div className='row-info'>
-                                <span className='bold'>Top Level Domain:</span>
-                                <span>{ currentidObject.topLevelDomain }</span>
-                            </div>
-
-                            <div className='row-info'>
-                                <span className='bold'>Currencies:</span>
-                                <span>{ currentidObject.currencies[0].name }</span>
-                            </div>
-
-                            <div className='row-info'>
-                                <span className='bold'>Languages:</span>
-                                { currentidObject.languages.map((lang) => (
-                                    <span>{lang.name} </span>
-                                )) }
-                            </div>
-
-                        </div>
-
+                <section className="container-details">
+                    <div className="flag-box">
+                        <img src={currentidObject.flag} alt={`${currentidObject.name} flag`} />
                     </div>
 
-                </div>
-
-
-            </section>
-
+                    <DetailsBox currentidObject={currentidObject} />
+                </section>
+            </div>
         </>
     )
 }

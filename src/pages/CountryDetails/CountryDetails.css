@@ -1,8 +1,18 @@
+.container-country-details {
+    margin: 1.5rem 2.5rem;
+}
+
+.top-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
 .container-details {
     display: flex;
     justify-content: center;
     gap: 6rem;
-    margin: 1.5rem 2.5rem;
     flex-wrap: wrap;
 }
 
@@ -14,21 +24,7 @@
 .flag-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-
-.columns-details {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.row-info {
-    display: flex;
+    object-fit: contain;
 }
 
 @media (max-width: 768px) {

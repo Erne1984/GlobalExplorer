@@ -25,7 +25,7 @@
     opacity: 0.8;
 }
 
-.white-mode{
+.dropdown-menu .white-mode{
     background-color: var(--white-theme);
     color: var(--text-white-theme);
 }

@@ -56,6 +56,7 @@ function App() {
           />} />
           <Route path="/countrydetails/:id" element={<CountryDetails
             data={data}
+            isDarkMode={isDarkMode}
           />} />
         </Routes>
       </Router>
