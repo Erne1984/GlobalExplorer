@@ -39,6 +39,8 @@ export default function CountryDetails({ data, isDarkMode }) {
                     </div>
 
                     <DetailsBox currentidObject={currentidObject} />
+
+
                 </section>
             </div>
         </>

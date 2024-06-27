@@ -1,5 +1,7 @@
 import './DetailsBox.css'
 
+import Borders from '../Borders/Borders'
+
 
 export default function DetailsBox({ currentidObject }) {
 
@@ -54,6 +56,10 @@ export default function DetailsBox({ currentidObject }) {
                         </div>
                     </div>
                 </div>
+
+                {currentidObject.borders && currentidObject.borders.length > 0 && (
+                    <Borders borders={currentidObject.borders} />
+                )}
             </div>
         </>
     )

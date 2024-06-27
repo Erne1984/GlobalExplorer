@@ -1,0 +1,13 @@
+.borders {
+    display: flex;
+}
+
+.borders-title {
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.countries {
+    display: flex;
+    gap: 5px;
+}
